@@ -6,68 +6,72 @@
     <title>Diferencias entre Git Local y Git Remoto 💻☁️</title>
     <style>
         body {
-            font-family: sans-serif;
-            background-color: #f4f7f6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #ffffff;
             display: flex;
-            flex-direction: column; /* Para colocar la descripción debajo de la tabla */
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            animation: backgroundShift 10s infinite alternate;
+        }
+
+        @keyframes backgroundShift {
+            0% {background-position: 0% 50%;}
+            100% {background-position: 100% 50%;}
         }
 
         table {
             border-collapse: collapse;
             width: 80%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
-            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
             overflow: hidden;
-            margin-bottom: 20px; /* Espacio entre la tabla y la descripción */
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
 
         th, td {
-            padding: 12px 15px;
+            padding: 15px 20px;
             text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transiciones para más efectos */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
         }
 
         th {
-            background-color: #a7d1eb; /* Un azul claro agradable */
-            color: #333;
+            background-color: #0f3460;
+            color: #ffcb05;
             font-weight: bold;
         }
 
         tr:nth-child(even) {
-            background-color: #e8f5e9; /* Un verde suave */
+            background-color: rgba(255, 255, 255, 0.05);
         }
 
-        tr:last-child td {
-            border-bottom: none;
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+            cursor: pointer;
         }
 
         .feature {
             font-weight: bold;
-            color: #5c6bc0; /* Un morado suave */
-        }
-
-        tr:hover {
-            background-color: #dcedc8; /* Un verde más claro para el hover */
-            cursor: pointer;
-            transform: scale(1.02); /* Pequeño efecto de escala al pasar el ratón */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+            color: #ff5f6d;
         }
 
         #description-area {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
             width: 60%;
             text-align: center;
-            color: #555;
+            color: #ffffff;
             font-style: italic;
+            margin-top: 20px;
+            backdrop-filter: blur(5px);
         }
     </style>
 </head>
