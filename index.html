@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diferencias entre Git Local y Git Remoto 💻☁️</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            flex-direction: column; /* Para colocar la descripción debajo de la tabla */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px; /* Espacio entre la tabla y la descripción */
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transiciones para más efectos */
+        }
+
+        th {
+            background-color: #a7d1eb; /* Un azul claro agradable */
+            color: #333;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #e8f5e9; /* Un verde suave */
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .feature {
+            font-weight: bold;
+            color: #5c6bc0; /* Un morado suave */
+        }
+
+        tr:hover {
+            background-color: #dcedc8; /* Un verde más claro para el hover */
+            cursor: pointer;
+            transform: scale(1.02); /* Pequeño efecto de escala al pasar el ratón */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+        }
+
+        #description-area {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            width: 60%;
+            text-align: center;
+            color: #555;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th><span role="img" aria-label="Característica">✨</span> Característica</th>
+        <th><span role="img" aria-label="Git Local">🏠</span> Git Local</th>
+        <th><span role="img" aria-label="Git Remoto">🌐</span> Git Remoto</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="feature">Ubicación</td>
+        <td>Reside en tu computadora personal. <br> <span style="color: #757575;">(Tu disco duro)</span></td>
+        <td>Se encuentra en un servidor, accesible a través de internet o una red. <br> <span style="color: #757575;">(GitHub, GitLab, Bitbucket, etc.)</span></td>
+    </tr>
+    <tr>
+        <td class="feature">Propósito Principal</td>
+        <td>Seguimiento de cambios en tu proyecto individualmente. <br> <span style="color: #757575;">(Historial personal, ramas locales)</span></td>
+        <td>Colaboración entre múltiples desarrolladores y respaldo del código. <br> <span style="color: #757575;">(Compartir, sincronizar, respaldar)</span></td>
+    </tr>
+    <tr>
+        <td class="feature">Interacción</td>
+        <td>Principalmente a través de comandos en la terminal. <br> <span style="color: #757575;">(<code>git commit</code>, <code>git branch</code>, etc.)</span></td>
+        <td>A través de comandos Git (<code>git push</code>, <code>git pull</code>, <code>git clone</code>) y la interfaz web del proveedor.</td>
+    </tr>
+    <tr>
+        <td class="feature">Independencia</td>
+        <td>Completamente independiente de otros repositorios hasta que se sincroniza.</td>
+        <td>Depende de la conexión de red para enviar y recibir cambios.</td>
+    </tr>
+    <tr>
+        <td class="feature">Respaldo</td>
+        <td>El respaldo depende de tu estrategia personal (copias de seguridad de tu disco duro).</td>
+        <td>Ofrece un respaldo remoto del código, protegiéndolo contra fallos locales. <span role="img" aria-label="Protegido">🛡️</span></td>
+    </tr>
+    <tr>
+        <td class="feature">Colaboración</td>
+        <td>Limitada al acceso directo a tu sistema de archivos hasta que se comparte.</td>
+        <td>Facilita la colaboración simultánea de múltiples personas en el mismo proyecto. <span role="img" aria-label="Equipo">🤝</span></td>
+    </tr>
+    </tbody>
+</table>
+
+<div id="description-area">
+    Pasa el ratón sobre una característica para ver su descripción.
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const rows = document.querySelectorAll('tbody tr');
+        const descriptionArea = document.getElementById('description-area');
+
+        const descriptions = {
+            'Ubicación': 'Indica dónde se almacena el repositorio: localmente en tu equipo o remotamente en un servidor.',
+            'Propósito Principal': 'Describe la función principal de cada tipo de repositorio: seguimiento individual vs. colaboración y respaldo.',
+            'Interacción': 'Señala cómo interactúas con cada tipo de repositorio, ya sea mediante comandos o interfaces web.',
+            'Independencia': 'Explica si el repositorio funciona de forma autónoma o depende de una conexión.',
+            'Respaldo': 'Detalla cómo se realiza el respaldo del código en cada sistema.',
+            'Colaboración': 'Indica el nivel de facilidad para trabajar con otros desarrolladores.'
+        };
+
+        rows.forEach(row => {
+            row.addEventListener('mouseover', function() {
+                const feature = this.querySelector('.feature').textContent;
+                descriptionArea.textContent = descriptions[feature] || 'Descripción no disponible.';
+            });
+
+            row.addEventListener('mouseout', function() {
+                descriptionArea.textContent = 'Pasa el ratón sobre una característica para ver su descripción.';
+            });
+        });
+    });
+</script>
+</body>
+</html>
